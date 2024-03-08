@@ -1,16 +1,19 @@
 "use client"
-import Image from "next/image";
-import styles from "./page.module.css";
+import  Link  from "next/link";
 
 export default function Home() {
   return (
-    <main >
-         <Child/>
-         <button onClick={()=>alert("Alert")}>Click</button>
+    <main>
+      <div>
+        <Link href="/about">Go To About Page</Link>
+        <Link href="/contact">Go To Contact Page</Link>
+      </div>
+      <Child />
+      <button onClick={() => alert("Alert")}>Click</button>
     </main>
   );
 }
 
-function Child(){
-  return <div>Child</div>
+function Child() {
+  return <div>Child</div>;
 }
