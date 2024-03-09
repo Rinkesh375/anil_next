@@ -1,6 +1,7 @@
 /* This is server component  */
 
 import axios from "axios"
+
 import ProductCard from "./productCard";
 async function getData() {
   return await axios.get(`https://dummyjson.com/products`);
@@ -20,6 +21,7 @@ async function ProductList() {
           <h1>ID : {id}</h1>
           <h1>Name : {title}</h1>
           <ProductCard price={price} />
+         
         </div>
 
       </div>)}
