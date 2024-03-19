@@ -1,10 +1,14 @@
-
-import styles from "./page.module.css";
+import Image from "next/image";
 
 export default function Home() {
+  // console.log(process.env.NODE_ENV)
   return (
-    <main className={styles.main}>
-     <h1>Home Page</h1>
-    </main>
+   <>
+   {
+    process.env.NODE_ENV === "development" ?<h1>Development Mode</h1>:<h1>Production Mode</h1>
+    
+   }
+   
+   </>
   );
 }
