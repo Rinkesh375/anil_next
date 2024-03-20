@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
+import { users } from "../../../utils/constant";
+
 
 export function GET(){
 
-    return NextResponse.json({id:1,name:"Rinkesh",city:"Bengalore"},{status:200})
+    return NextResponse.json(users,{status:200})
 }
