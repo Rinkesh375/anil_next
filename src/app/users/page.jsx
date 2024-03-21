@@ -12,10 +12,15 @@ const page = async() => {
     const users = await getData();
   return (
     <>
-   {users.map((user)=><Link href={`users/${user.id}`}>
+   {users.map((user)=><div className='flex ' key={user.id}>
+   
+    <Link href={`users/${user.id}`}>
         <h1 className='text-base text-[rgb(0,0,255)]'>Name : {user.name}</h1>
 
-   </Link>)}
+
+   </Link>
+   <Link href={`users/${user.id}/update`}><h1 className='text-base text-[rgb(0,255,136)]'>Update</h1></Link>
+   </div>)}
     
     
     </>
