@@ -6,11 +6,20 @@ const PATCH = async (request, content) => {
   await mongoose.connect(process.env.mongoURL);
   const data = await request.json();
   const { productId } = content.params;
-  console.log(productId);
+
   const product = await Product.findByIdAndUpdate({ _id: productId }, data, {
     new: true,
   });
   return NextResponse.json(product,{status:200});
 };
 
-export { PATCH };
+
+const GET = async (request,content)=>{
+    await mongoose.connect(process.env.mongoURL);
+    const {productId} = content.params;
+    const product = await Product.findById({_id:productId});
+    return NextResponse.json(product,{status:200});
+
+}
+
+export { PATCH,GET};

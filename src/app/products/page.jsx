@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios';
+import Link from 'next/link';
 
 const getProducts = async ()=>{
     const res = await axios.get(`http://localhost:3000/api/products`);
@@ -18,14 +19,17 @@ const page = async () => {
                 <th>Name</th>
                 <th>Price</th>
                 <th>Category</th>
+                <th>Update Product</th>
             </tr>
             
         </thead>
         <tbody>
-          {products.map(product =><tr key={product.id}>
+          {products.map(product =><tr key={product._id}>
+                
                   <td>{product.name}</td>
                   <td>{product.price}</td>
                   <td>{product.category}</td>
+                  <td><Link href={`products/${product._id}`}>Update</Link></td>
           </tr>)} 
         </tbody>
     </table>
