@@ -5,7 +5,7 @@ import { Product } from "../../../backend-utils/product";
 export async function GET(){
      await mongoose.connect(process.env.mongoURL);
      const products = await Product.find();
-     return NextResponse.json(products);
+     return NextResponse.json(products,{status:200});
 }
 
 
@@ -16,7 +16,7 @@ export async function POST(request){
     const result = await product.save();
 
     try {
-       return  NextResponse.json(result)
+      return NextResponse.json(result, { status: 201 });
     } catch (error) {
        return  NextResponse.json(error);
     }
